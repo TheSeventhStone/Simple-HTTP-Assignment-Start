@@ -1,0 +1,30 @@
+{
+  "name": "simple-http-assignment-start",
+  "version": "1.0.0",
+  "engine": {
+    "node": "24.18.0"
+  },
+  "description": "",
+  "homepage": "https://github.com/TheSeventhStone/Simple-HTTP-Assignment-Start#readme",
+  "bugs": {
+    "url": "https://github.com/TheSeventhStone/Simple-HTTP-Assignment-Start/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSeventhStone/Simple-HTTP-Assignment-Start.git"
+  },
+  "license": "ISC",
+  "author": "SGFL",
+  "type": "commonjs",
+  "main": "eslint.config.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests complete\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.1",
+    "globals": "^17.11.0"
+  }
+}
