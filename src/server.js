@@ -1,20 +1,23 @@
 const http = require("http");
-const htmlHandler = require("./htmlResponses.js");
-const textHandler = require("./textResponses.js");
-const jsonHandler = require("./jsonResponses.js");  
+// const htmlHandler = require("./htmlResponses.js");
+// const textHandler = require("./textResponses.js");
+// const jsonHandler = require("./jsonResponses.js");  
+const responsesHandler = require("./responses.js");
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const fs = require("fs");
-
-const index = fs.readFileSync(`${__dirname}/../client/client.html`);
-const page2 = fs.readFileSync(`${__dirname}/../client/client.html`);
 
 const onRequest = (request, response) => {
     console.log(request.url);
-    response.writeHead(200, {"Content-Type" : "text/html"});
-    response.write(index);
-    response.end();
+    if(request.url === "/client2"){
+        responsesHandler.getClient2(request,response);
+    }
+    else if(request.url === "/message"){
+        responsesHandler.getMessage(request,response);
+    }
+    else{
+        responsesHandler.getIndex(request,response);
+    }
 }
 
 http.createServer(onRequest).listen(port, () => {
