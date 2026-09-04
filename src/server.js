@@ -9,14 +9,18 @@ const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 const onRequest = (request, response) => {
     console.log(request.url);
-    if(request.url === "/client2"){
-        responsesHandler.getClient2(request,response);
-    }
-    else if(request.url === "/message"){
-        responsesHandler.getMessage(request,response);
-    }
-    else{
-        responsesHandler.getIndex(request,response);
+    switch(request.url){
+        case "/client2":
+            responsesHandler.getClient2(request,response);
+            break;
+        case "/message":
+            responsesHandler.getMessage(request,response);
+            break;
+        case "/styles.css":
+            responsesHandler.getCSS(request,response);
+            break;
+        default:
+            responsesHandler.getIndex(request,response);
     }
 }
 
